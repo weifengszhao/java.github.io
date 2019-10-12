@@ -4,6 +4,93 @@
   
     
     <entry>
+      <title>presto搭建</title>
+      <link href="/2019/10/12/presto%E6%90%AD%E5%BB%BA/"/>
+      <url>/2019/10/12/presto%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Presto的部署"><a href="#Presto的部署" class="headerlink" title="Presto的部署"></a>Presto的部署</h1><h2 id="Presto安装"><a href="#Presto安装" class="headerlink" title="Presto安装"></a>Presto安装</h2><p>1、下载</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo1.maven.org/maven2/com/facebook/presto/presto-server/&lt;VERSION&gt;/presto-server-&lt;VERSION&gt;.tar.gz</span><br></pre></td></tr></table></figure><p>2、解压</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf presto-server-&lt;VERSION&gt;.tar.gz -C /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure><p>创建数据目录和解压目录</p><h2 id="Presto配置"><a href="#Presto配置" class="headerlink" title="Presto配置"></a>Presto配置</h2><p>在安装目录里创建etc目录。etc目录中会有以下配置：</p><ul><li>节点属性（Node Properties）：每个节点的环境配置</li><li>JVM配置（JVM Config）：Java虚拟机的命令行选项</li><li>配置属性（Config Properties）：Presto server的配置</li><li>Catalog属性（Catalog Properties）：配置数据源Connector</li></ul><h3 id="节点属性（Node-Properties）"><a href="#节点属性（Node-Properties）" class="headerlink" title="节点属性（Node Properties）"></a>节点属性（Node Properties）</h3><p>节点属性文件etc/node.properties，包含每个节点的配置。一个节点是一个Presto实例。这文件一般是在Presto第一次安装时创建的。以下是最小配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node.environment=production</span><br><span class="line">node.id=ffffffff-ffff-ffff-ffff-ffffffffffff</span><br><span class="line">node.data-dir=/var/presto/data</span><br></pre></td></tr></table></figure><p>node.environment：环境名字，Presto集群中的节点的环境名称都必须一样。</p><p>node.id：唯一标识，每个节点的标识都必须是唯一的。就算重启或者升级都必须保持原来的标识。</p><p>node.data-dir：数据目录，Presto用来存放日志及其他数据。</p><h3 id="JVM配置（JVM-Config）"><a href="#JVM配置（JVM-Config）" class="headerlink" title="JVM配置（JVM Config）"></a>JVM配置（JVM Config）</h3><p>JVM配置文件etc/jvm.config，包含启动Java虚拟机时的命令行选项。格式是每一行是一个命令行选项。此文件数据是由shell解析，所以选项中包含空格或特殊字符会被忽略。</p><p>以下是参考配置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-server</span><br><span class="line">-Xmx16G</span><br><span class="line">-XX:+UseG1GC</span><br><span class="line">-XX:G1HeapRegionSize=32M</span><br><span class="line">-XX:+UseGCOverheadLimit</span><br><span class="line">-XX:+ExplicitGCInvokesConcurrent</span><br><span class="line">-XX:+HeapDumpOnOutOfMemoryError</span><br><span class="line">-XX:+ExitOnOutOfMemoryError</span><br></pre></td></tr></table></figure><p>因为OutOfMemoryError会导致JVM存在不一致状态，所以用heap dump来debug，来找出进程为什么崩溃的原因。</p><h3 id="配置属性（Config-Properties）"><a href="#配置属性（Config-Properties）" class="headerlink" title="配置属性（Config Properties）"></a>配置属性（Config Properties）</h3><p>配置属性文件etc/config.properties，包含Presto Server配置。Presto server可以同时为coordinator和worker，但一个大集群里最好就是只指定一台机器为coordinator。</p><p>以下是参考coordinator的最小配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">coordinator=true</span><br><span class="line">node-scheduler.include-coordinator=false</span><br><span class="line">http-server.http.port=8080</span><br><span class="line">query.max-memory=50GB</span><br><span class="line">query.max-memory-per-node=1GB</span><br><span class="line">discovery-server.enabled=true</span><br><span class="line">discovery.uri=http://example.net:8080</span><br></pre></td></tr></table></figure><p>以下是参考worker的最小配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">coordinator=false</span><br><span class="line">http-server.http.port=8080</span><br><span class="line">query.max-memory=50GB</span><br><span class="line">query.max-memory-per-node=1GB</span><br><span class="line">discovery.uri=http://example.net:8080</span><br></pre></td></tr></table></figure><p>如果适用于测试目的，需要将一台机器同时配置为coordinator和worker，则使用以下配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">coordinator=true</span><br><span class="line">node-scheduler.include-coordinator=true</span><br><span class="line">http-server.http.port=8080</span><br><span class="line">query.max-memory=5GB</span><br><span class="line">query.max-memory-per-node=1GB</span><br><span class="line">discovery-server.enabled=true</span><br><span class="line">discovery.uri=http://example.net:8080</span><br></pre></td></tr></table></figure><p>coordinator： 是否运行该实例为coordinator（接受client的查询和管理查询执行）。<br>node-scheduler.include-coordinator：coordinator是否也作为work。对于大型集群来说，在coordinator里做worker的工作会影响查询性能。<br>http-server.http.port：指定HTTP端口。Presto使用HTTP来与外部和内部进行交流。<br>query.max-memory：查询能用到的最大总内存<br>query.max-memory-per-node：查询能用到的最大单结点内存<br>discovery-server.enabled：Presto使用Discovery服务去找到集群中的所有结点。每个Presto实例在启动时都会在Discovery服务里注册。这样可以简化部署，不需要额外的服务，Presto的coordinator内置一个Discovery服务。也是使用HTTP端口。<br>discovery.uri：Discovery服务的URI。将example.net:8080替换为coordinator的host和端口。<strong>这个URI不能以斜杠结尾，这个错误需特别注意，不然会报404错误</strong>。</p><p>另外还有以下属性：<br>jmx.rmiregistry.port: 指定JMX RMI的注册。JMX client可以连接此端口<br>jmx.rmiserver.port: 指定JXM RMI的服务器。可通过JMX监听。</p><h3 id="Catalog属性（Catalog-Properties）"><a href="#Catalog属性（Catalog-Properties）" class="headerlink" title="Catalog属性（Catalog Properties）"></a>Catalog属性（Catalog Properties）</h3><p>Presto通过connector访问数据。而connector是挂载（mount）在catelog中。connector支持catelog里所有的schema和table。举个例子，Hive connector映射每个Hive数据库到schema，因此Hive connector挂载在hive catelog（所以可以把catelog理解为目录，挂载），而且Hive包含table clicks在数据库web，所以这个table在Presto是hive.web.clicks。<br>Catalog的注册是通过etc/catalog目录下的catalog属性文件。例如，创建etc/catalog/jmx.properties，将jmxconnector挂载在jmx catelog：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connector.name=jmx</span><br></pre></td></tr></table></figure><p>hive的注册，创建etc/catalog/hive.properties，参考最小配置如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">connector.name=hive-hadoop2</span><br><span class="line">hive.metastore.uri=thrift://example.net:9083</span><br><span class="line">hive.config.resources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml</span><br></pre></td></tr></table></figure><h2 id="运行Presto"><a href="#运行Presto" class="headerlink" title="运行Presto"></a>运行Presto</h2><p>启动命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/launcher start</span><br></pre></td></tr></table></figure><p>日志在var/log目录下：<br>launcher.log：记录服务初始化情况和一些JVM的诊断。<br>server.log：Presto的主要日志文件。会自动被压缩。<br>http-request.log：记录HTTP请求。会自动被压缩。</p><h2 id="运行Presto命令行界面"><a href="#运行Presto命令行界面" class="headerlink" title="运行Presto命令行界面"></a>运行Presto命令行界面</h2><ol><li>下载 presto-cli-<version>-executable.jar</version></li><li>修改名字 presto-cli-<version>-executable.jar为 presto</version></li><li>修改执行权限chmod +x</li><li>运行</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./presto --server localhost:8080 --catalog hive --schema default</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+          <category> presto </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> presto </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>查看Gradle某jar包的依赖</title>
+      <link href="/2019/10/12/%E6%9F%A5%E7%9C%8BGradle%E6%9F%90jar%E5%8C%85%E7%9A%84%E4%BE%9D%E8%B5%96/"/>
+      <url>/2019/10/12/%E6%9F%A5%E7%9C%8BGradle%E6%9F%90jar%E5%8C%85%E7%9A%84%E4%BE%9D%E8%B5%96/</url>
+      
+        <content type="html"><![CDATA[<p>执行下面的命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle :模块:dependencyInsight --dependency 包名 --configuration compile</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+          <category> gradle </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> gradle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Intellij IDEA运行报Command line is too long</title>
+      <link href="/2019/10/12/Intellij-IDEA%E8%BF%90%E8%A1%8C%E6%8A%A5Command-line-is-too-long/"/>
+      <url>/2019/10/12/Intellij-IDEA%E8%BF%90%E8%A1%8C%E6%8A%A5Command-line-is-too-long/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Intellij-IDEA运行报Command-line-too-long"><a href="#Intellij-IDEA运行报Command-line-too-long" class="headerlink" title="Intellij IDEA运行报Command line too long"></a>Intellij IDEA运行报Command line too long</h3><p>修改项目.idea/workspace.xml</p><p>找到标签</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">name</span>=<span class="string">"PropertiesComponent"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>在标签里加一行</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dynamic.classpath"</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+          <category> idea </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo github pages搭建博客</title>
       <link href="/2019/10/12/hexo-github-pages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
       <url>/2019/10/12/hexo-github-pages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
