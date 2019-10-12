@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>maven项目或第三方jar发布到私服</title>
+    <url>/2019/10/12/maven%E9%A1%B9%E7%9B%AE%E6%88%96%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8F%91%E5%B8%83%E5%88%B0%E7%A7%81%E6%9C%8D/</url>
+    <content><![CDATA[<h2 id="第三方jar发布"><a href="#第三方jar发布" class="headerlink" title="第三方jar发布"></a>第三方jar发布</h2><p> 打开命令行进入到maven安装目录下的bin目录，敲入如下指令，具体参考根据情况修改，下面有参数详细说明。   </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mvn deploy:</span><br><span class="line">deploy-file </span><br><span class="line">-DgroupId=hw.vedioicon </span><br><span class="line">-DartifactId=vedioicon </span><br><span class="line">-Dversion=1.0 </span><br><span class="line">-Dpackaging=jar </span><br><span class="line">-Dfile=D:\workspace\web-mooc\src\main\webapp\WEB-INF\lib\vedioicon.jar </span><br><span class="line">-Durl=http://host:port/nexus/content/repositories/thirdparty/ </span><br><span class="line">-DrepositoryId=thirdparty</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>DgroupId和DartifactId构成了该jar包在pom.xml的坐标，项目就是依靠这两个属性定位。自己起名字也行。</li>
+<li>Dfile表示需要上传的jar包的绝对路径。</li>
+<li>Durl私服上仓库的位置，打开nexus——&gt;repositories菜单，可以看到该路径。</li>
+<li>DrepositoryId服务器的表示id，在nexus的configuration可以看到。</li>
+<li>上传成功后，在nexus界面点击3rd party仓库可以看到这包。</li>
+</ul>
+<h2 id="项目发布"><a href="#项目发布" class="headerlink" title="项目发布"></a>项目发布</h2><p>  pom配置：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://host:port/nexus/content/repositories/releases/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">snapshotRepository</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>nexus distribution snapshot repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://host:port/nexus/content/repositories/snapshots/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshotRepository</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>项目右键 run-maven-build 在goal中填写deploy直接运行即可</p>
+<p>权限配置：在用户或maven的配置settings.xml，注意如果用户下.m2中配置了settings，以.m2中的为主</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">username</span>&gt;</span>deployment<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">password</span>&gt;</span>******<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">username</span>&gt;</span>deployment<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">password</span>&gt;</span>******<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="name">username</span>&gt;</span>deployment<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="name">password</span>&gt;</span>******<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  注意id一定要和server中的id统一 </p>
+<p><font size="1"><em>参考链接：<a href="https://my.oschina.net/geekLight/blog/424206" target="_blank" rel="noopener">https://my.oschina.net/geekLight/blog/424206</a></em></font></p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>maven</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>postgresql行列转换</title>
     <url>/2019/10/12/Postgresql%E8%A1%8C%E5%88%97%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>Postgresql 9.4.4</p>
