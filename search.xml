@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java环境变量配置</title>
+    <url>/2019/10/12/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>官网下载适用版本JDK安装包，进行安装（下载过程，和安装过程此处忽略截图配置）</p>
+<p>接下来按照以下几个操作步骤：</p>
+<ol>
+<li>我的电脑→右键→属性</li>
+<li>点击高级系统设置</li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/windows%E9%AB%98%E7%BA%A7%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE.jpg" alt="windows高级系统设置"></p>
+<ol start="3">
+<li>点击系统属性→环境变量</li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/windows%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" alt="环境变量"></p>
+<ol start="4">
+<li>打开之后，我们在下方的系统变量中，找到新建按钮，点击打开</li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/windows%E6%96%B0%E5%BB%BA.jpg" alt="环境变量"></p>
+<ol start="5">
+<li>新建一个系统变量“JAVA_HOME”，然后手动选择你JDK安装的位置，点击确定</li>
+<li>新建一个叫做“CLASSPATH”的环境变量，变量值输入“;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;” </li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/windowsclasspath.jpg" alt="环境变量"></p>
+<ol start="7">
+<li>找到系统变量Path，点击打开编辑，然后点击新建，找到JDK的目录，然后点击打开JDK下面的bin目录，复制地址，添加到目录中，如图示</li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/windowspath.jpg" alt="环境变量"></p>
+<ol start="8">
+<li>点击确定之后，我们打开命令提示符，输入Java，如图示有图示显示</li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/windowsjava.jpg" alt="环境变量"></p>
+<ol start="9">
+<li>再次输入Javac，显示如图则按照正常</li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/windowsjavac.jpg" alt="环境变量"></p>
+<h2 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h2><ol>
+<li>centos下的JDK环境配置分两种情况，一直是root用户级别的jdk配置，另一种是其他用户组级别的配置。这里讲解的是root用户级别的配置。</li>
+</ol>
+<p><img src="/2019/10/12/Java环境变量配置/centosjdkpath.jpg" alt="环境变量"></p>
+<pre><code>2. 编辑环境变量的配置文件</code></pre><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p> 在尾部增加如下代码： </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_181</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=$:CLASSPATH:<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+
+<p> 同时修改export JAVA_HOME=<strong>自己linux上的jdk存放位置</strong>。其他两行不需要修改 </p>
+<ol start="3">
+<li>让环境变量配置生效 </li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>使用java以及javac命令查询配置是否生效</li>
+</ol>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>环境变量</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>环境变量</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git操作</title>
     <url>/2019/10/12/git%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h5 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h5><p>新建git仓库，创建新文件夹</p>
