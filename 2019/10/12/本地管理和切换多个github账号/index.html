@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="原文链接：https://my.oschina.net/hyzccc/blog/3042701 前言大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？ 操作过程 创建ssh密钥；">
+<meta name="description" content="前言大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？ 操作过程 创建ssh密钥； 将密钥添加到 github 账户； 创建 config 文件，管理单独的 key 更新存储的 k">
 <meta name="keywords" content="github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地管理和切换多个github账号">
 <meta property="og:url" content="http://blog.2b13c.com/2019/10/12/本地管理和切换多个github账号/index.html">
 <meta property="og:site_name" content="微小风的狂风暴雨">
-<meta property="og:description" content="原文链接：https://my.oschina.net/hyzccc/blog/3042701 前言大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？ 操作过程 创建ssh密钥；">
+<meta property="og:description" content="前言大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？ 操作过程 创建ssh密钥； 将密钥添加到 github 账户； 创建 config 文件，管理单独的 key 更新存储的 k">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-12T03:56:00.200Z">
+<meta property="og:updated_time" content="2019-10-12T05:53:23.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地管理和切换多个github账号">
-<meta name="twitter:description" content="原文链接：https://my.oschina.net/hyzccc/blog/3042701 前言大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？ 操作过程 创建ssh密钥；">
+<meta name="twitter:description" content="前言大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？ 操作过程 创建ssh密钥； 将密钥添加到 github 账户； 创建 config 文件，管理单独的 key 更新存储的 k">
 
 
 
@@ -161,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">不辣不拉不辣不拉</p>
+        <p class="site-subtitle">就是自己记录文档的地方</p>
       
   </div>
 
@@ -197,6 +197,26 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -283,6 +303,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/github/" itemprop="url" rel="index">
+                    <span itemprop="name">github</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -310,8 +352,7 @@
       
 
       
-        <p><font size="1"><em>原文链接：<a href="https://my.oschina.net/hyzccc/blog/3042701" target="_blank" rel="noopener">https://my.oschina.net/hyzccc/blog/3042701</a></em></font></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大多数的我们都会遇到这样一个问题：公司有一个 github 账户，这个是专门为工作准备的。而我们自己也有一个自己的私人 github 账户，有事没事做做自己的项目，写写自己感兴趣的东西。可是，我们怎么在电脑上把公司 github 切换到自己的私人github 账号上呢？</p>
 <h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><ol>
 <li>创建ssh密钥；</li>
 <li>将密钥添加到 github 账户；</li>
@@ -367,11 +408,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote git add origin git@admin:xxxx/work-test.git</span><br></pre></td></tr></table></figure>
 
 <p>这样就能做到切换远程，必须将地址改为对应的config里面的host</p>
-<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><ul>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
 <li><a href="https://mherman.org/blog/managing-multiple-github-accounts/" target="_blank" rel="noopener">Managing Multiple Github Accounts</a></li>
 <li><a href="https://code.tutsplus.com/tutorials/quick-tip-how-to-work-with-github-and-multiple-accounts--net-22574" target="_blank" rel="noopener">Quick Tip: How to Work with GitHub and Multiple Accounts</a></li>
 <li><a href="https://www.cnblogs.com/sunchong/p/10171870.html" target="_blank" rel="noopener">图解 – Win10 OpenSSH</a></li>
 </ul>
+<p><font size="1"><em>原文链接：<a href="https://my.oschina.net/hyzccc/blog/3042701" target="_blank" rel="noopener">https://my.oschina.net/hyzccc/blog/3042701</a></em></font></p>
 
       
     </div>
@@ -494,15 +536,24 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -533,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作过程"><span class="nav-number">2.</span> <span class="nav-text">操作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、创建SSH密钥"><span class="nav-number">2.1.</span> <span class="nav-text">1、创建SSH密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、将各自新密钥绑定到各自对应github账号"><span class="nav-number">2.2.</span> <span class="nav-text">2、将各自新密钥绑定到各自对应github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、创建一个配置config文件来管理key"><span class="nav-number">2.3.</span> <span class="nav-text">3、创建一个配置config文件来管理key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、更新存储的key"><span class="nav-number">2.4.</span> <span class="nav-text">4、更新存储的key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、测试-clone-和-push"><span class="nav-number">2.5.</span> <span class="nav-text">5、测试 clone 和 push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、在终端上切换-github-账号"><span class="nav-number">2.6.</span> <span class="nav-text">6、在终端上切换 github 账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资料"><span class="nav-number">2.7.</span> <span class="nav-text">资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作过程"><span class="nav-number">2.</span> <span class="nav-text">操作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、创建SSH密钥"><span class="nav-number">2.1.</span> <span class="nav-text">1、创建SSH密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、将各自新密钥绑定到各自对应github账号"><span class="nav-number">2.2.</span> <span class="nav-text">2、将各自新密钥绑定到各自对应github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、创建一个配置config文件来管理key"><span class="nav-number">2.3.</span> <span class="nav-text">3、创建一个配置config文件来管理key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、更新存储的key"><span class="nav-number">2.4.</span> <span class="nav-text">4、更新存储的key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、测试-clone-和-push"><span class="nav-number">2.5.</span> <span class="nav-text">5、测试 clone 和 push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、在终端上切换-github-账号"><span class="nav-number">2.6.</span> <span class="nav-text">6、在终端上切换 github 账号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-number">3.</span> <span class="nav-text">资料</span></a></li></ol></div>
             
 
           </div>
