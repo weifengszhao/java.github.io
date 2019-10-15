@@ -396,9 +396,8 @@
       
         
           
-          详细改造点将标志workerId和dataCenterId的10位分别改造为，获取本机mac地址以及获取本机运行进程编号
-以往workerId和dataCenterId需要手动输入，如果跨机器输入了同样的代码，可能会导致出现不同机器生成相同代码的可能性
-代码123456789101112131415
+          snowflake算法
+snowflake是Twitter开源的分布式ID生成算法，结果是一个long型的ID。其核心思想是：使用41bit作为毫秒数，10bit作为机器的ID（5个bit是数据中心，5个bit的机器ID），12bit作为毫秒内的流水号（意味着每个节点在每毫秒可以产生 4096 个 
           ...
           <!--noindex-->
           <div class="post-button text-center">
