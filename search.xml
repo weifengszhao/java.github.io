@@ -13,20 +13,14 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull [images]:[version]</span><br></pre></td></tr></table></figure>
 
 <p><strong>后台启动docker，并指定宿主机端口和docker映射端口</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 8000:80 -tdi --privileged [imageId] [<span class="built_in">command</span>]</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; docker run -p 8000:80 -tdi --privileged [imageId] [<span class="built_in">command</span>]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>-i：以交互模式运行容器，通常与-t同时使用；</p>
-<p>-d：后台运行容器，并返回容器ID；</p>
-<p>-t：为容器重新分配一个伪输入终端，通常与-i同时使用；</p>
-<p>–privileged：容器将拥有访问主机所有设备的权限；</p>
-<p>通常情况下[command]填写/bin/bash即可，特殊情况下，如需要在centos镜像中使用systemctl，则应添加–privileged并设置[command]为init；</p>
+<p>-i：以交互模式运行容器，通常与-t同时使用；<br>-d：后台运行容器，并返回容器ID；<br>-t：为容器重新分配一个伪输入终端，通常与-i同时使用；<br>–privileged：容器将拥有访问主机所有设备的权限；<br>通常情况下[command]填写/bin/bash即可，特殊情况下，如需要在centos镜像中使用systemctl，则应添加–privileged并设置[command]为init；</p>
 </blockquote>
 <p><strong>进入终端交互模式</strong></p>
-<blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; docker <span class="built_in">exec</span> -it [containerId] /bin/bash</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it [containerId] /bin/bash</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>交互模式中，使用ctrl+p+q退出交互，保持运行，使用exit命令退出并停止容器</p>
 </blockquote>
@@ -46,19 +40,13 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit [containerId] [ImageName]:[Version]</span><br></pre></td></tr></table></figure>
 
 <p><strong>将容器保存为新的镜像，并添加提交人信息和说明信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit -a <span class="string">"author"</span> -m <span class="string">"comment"</span> [contaierId] [ImageName]:[Version]</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; docker commit -a <span class="string">"author"</span> -m <span class="string">"comment"</span> [contaierId] [ImageName]:[Version]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>-a：提交镜像的作者；</p>
-<p>-c：使用Dockerfile指令来创建镜像；</p>
-<p>-m：提交时的说明文字；</p>
-<p>-p：在commit时，将容器暂停；</p>
+<p>-a：提交镜像的作者；<br>-c：使用Dockerfile指令来创建镜像；<br>-m：提交时的说明文字；<br>-p：在commit时，将容器暂停；</p>
 </blockquote>
 <p>提交镜像到云仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker push [ImageId] [ReposityAddress]</span><br></pre></td></tr></table></figure>
-
-]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker push [ImageId] [ReposityAddress]</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>docker</category>
       </categories>

@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="基础操作查看镜像列表 1docker images  查看运行中的所有容器 1docker ps -a  从docker hub中拉去指定镜像 1docker pull [images]:[version]  后台启动docker，并指定宿主机端口和docker映射端口  12&amp;gt; docker run -p 8000:80 -tdi --privileged [imageId] [comma">
+<meta name="description" content="基础操作查看镜像列表 1docker images  查看运行中的所有容器 1docker ps -a  从docker hub中拉去指定镜像 1docker pull [images]:[version]  后台启动docker，并指定宿主机端口和docker映射端口 1docker run -p 8000:80 -tdi --privileged [imageId] [command]   -">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker常用命令">
 <meta property="og:url" content="http://blog.2b13c.com/2019/10/15/Docker常用命令/index.html">
 <meta property="og:site_name" content="微小风的狂风暴雨">
-<meta property="og:description" content="基础操作查看镜像列表 1docker images  查看运行中的所有容器 1docker ps -a  从docker hub中拉去指定镜像 1docker pull [images]:[version]  后台启动docker，并指定宿主机端口和docker映射端口  12&amp;gt; docker run -p 8000:80 -tdi --privileged [imageId] [comma">
+<meta property="og:description" content="基础操作查看镜像列表 1docker images  查看运行中的所有容器 1docker ps -a  从docker hub中拉去指定镜像 1docker pull [images]:[version]  后台启动docker，并指定宿主机端口和docker映射端口 1docker run -p 8000:80 -tdi --privileged [imageId] [command]   -">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T07:17:13.760Z">
+<meta property="og:updated_time" content="2019-10-15T07:19:44.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker常用命令">
-<meta name="twitter:description" content="基础操作查看镜像列表 1docker images  查看运行中的所有容器 1docker ps -a  从docker hub中拉去指定镜像 1docker pull [images]:[version]  后台启动docker，并指定宿主机端口和docker映射端口  12&amp;gt; docker run -p 8000:80 -tdi --privileged [imageId] [comma">
+<meta name="twitter:description" content="基础操作查看镜像列表 1docker images  查看运行中的所有容器 1docker ps -a  从docker hub中拉去指定镜像 1docker pull [images]:[version]  后台启动docker，并指定宿主机端口和docker映射端口 1docker run -p 8000:80 -tdi --privileged [imageId] [command]   -">
 
 
 
@@ -338,7 +338,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-15T15:17:13+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-15T15:19:44+08:00">
                 2019-10-15
               </time>
             
@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  394 字
+                  385 字
                 </span>
               
 
@@ -428,20 +428,14 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [images]:[version]</span><br></pre></td></tr></table></figure>
 
 <p><strong>后台启动docker，并指定宿主机端口和docker映射端口</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8000:80 -tdi --privileged [imageId] [<span class="built_in">command</span>]</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; docker run -p 8000:80 -tdi --privileged [imageId] [<span class="built_in">command</span>]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>-i：以交互模式运行容器，通常与-t同时使用；</p>
-<p>-d：后台运行容器，并返回容器ID；</p>
-<p>-t：为容器重新分配一个伪输入终端，通常与-i同时使用；</p>
-<p>–privileged：容器将拥有访问主机所有设备的权限；</p>
-<p>通常情况下[command]填写/bin/bash即可，特殊情况下，如需要在centos镜像中使用systemctl，则应添加–privileged并设置[command]为init；</p>
+<p>-i：以交互模式运行容器，通常与-t同时使用；<br>-d：后台运行容器，并返回容器ID；<br>-t：为容器重新分配一个伪输入终端，通常与-i同时使用；<br>–privileged：容器将拥有访问主机所有设备的权限；<br>通常情况下[command]填写/bin/bash即可，特殊情况下，如需要在centos镜像中使用systemctl，则应添加–privileged并设置[command]为init；</p>
 </blockquote>
 <p><strong>进入终端交互模式</strong></p>
-<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; docker <span class="built_in">exec</span> -it [containerId] /bin/bash</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it [containerId] /bin/bash</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>交互模式中，使用ctrl+p+q退出交互，保持运行，使用exit命令退出并停止容器</p>
 </blockquote>
@@ -461,19 +455,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit [containerId] [ImageName]:[Version]</span><br></pre></td></tr></table></figure>
 
 <p><strong>将容器保存为新的镜像，并添加提交人信息和说明信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -a <span class="string">"author"</span> -m <span class="string">"comment"</span> [contaierId] [ImageName]:[Version]</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; docker commit -a <span class="string">"author"</span> -m <span class="string">"comment"</span> [contaierId] [ImageName]:[Version]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>-a：提交镜像的作者；</p>
-<p>-c：使用Dockerfile指令来创建镜像；</p>
-<p>-m：提交时的说明文字；</p>
-<p>-p：在commit时，将容器暂停；</p>
+<p>-a：提交镜像的作者；<br>-c：使用Dockerfile指令来创建镜像；<br>-m：提交时的说明文字；<br>-p：在commit时，将容器暂停；</p>
 </blockquote>
 <p>提交镜像到云仓库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push [ImageId] [ReposityAddress]</span><br></pre></td></tr></table></figure>
-
-
       
     </div>
     <div>
