@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker常用命令</title>
+    <url>/2019/10/15/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h3><p><strong>查看镜像列表</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看运行中的所有容器</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+<p><strong>从docker hub中拉去指定镜像</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull [images]:[version]</span><br></pre></td></tr></table></figure>
+
+<p><strong>后台启动docker，并指定宿主机端口和docker映射端口</strong></p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; docker run -p 8000:80 -tdi --privileged [imageId] [<span class="built_in">command</span>]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>-i：以交互模式运行容器，通常与-t同时使用；</p>
+<p>-d：后台运行容器，并返回容器ID；</p>
+<p>-t：为容器重新分配一个伪输入终端，通常与-i同时使用；</p>
+<p>–privileged：容器将拥有访问主机所有设备的权限；</p>
+<p>通常情况下[command]填写/bin/bash即可，特殊情况下，如需要在centos镜像中使用systemctl，则应添加–privileged并设置[command]为init；</p>
+</blockquote>
+<p><strong>进入终端交互模式</strong></p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; docker <span class="built_in">exec</span> -it [containerId] /bin/bash</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>交互模式中，使用ctrl+p+q退出交互，保持运行，使用exit命令退出并停止容器</p>
+</blockquote>
+<p><strong>非交互模式下，启动/停止已部署容器</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker start/stop [contailnerId]</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除容器</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rm [containerId]</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除镜像</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rmi [imageId]</span><br></pre></td></tr></table></figure>
+
+<p><strong>将宿主机内的指定文件传输至容器内部的指定地址</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker cp [HostFilePath] [contailnerId]:[DockerPath]</span><br></pre></td></tr></table></figure>
+
+<h3 id="镜像制作"><a href="#镜像制作" class="headerlink" title="镜像制作"></a>镜像制作</h3><p><strong>将修改后的容器重新打包生成镜像</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit [containerId] [ImageName]:[Version]</span><br></pre></td></tr></table></figure>
+
+<p><strong>将容器保存为新的镜像，并添加提交人信息和说明信息</strong></p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; docker commit -a <span class="string">"author"</span> -m <span class="string">"comment"</span> [contaierId] [ImageName]:[Version]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>-a：提交镜像的作者；</p>
+<p>-c：使用Dockerfile指令来创建镜像；</p>
+<p>-m：提交时的说明文字；</p>
+<p>-p：在commit时，将容器暂停；</p>
+</blockquote>
+<p>提交镜像到云仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker push [ImageId] [ReposityAddress]</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Snowflake算法个人改造版</title>
     <url>/2019/10/12/Snowflake%E7%AE%97%E6%B3%95%E4%B8%AA%E4%BA%BA%E6%94%B9%E9%80%A0%E7%89%88/</url>
     <content><![CDATA[<h2 id="snowflake算法"><a href="#snowflake算法" class="headerlink" title="snowflake算法"></a>snowflake算法</h2><blockquote>
