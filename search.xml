@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>解决docker pull 速度慢</title>
+    <url>/2019/10/17/%E8%A7%A3%E5%86%B3docker-pull-%E9%80%9F%E5%BA%A6%E6%85%A2/</url>
+    <content><![CDATA[<h3 id="修改为国内镜像源"><a href="#修改为国内镜像源" class="headerlink" title="修改为国内镜像源"></a>修改为国内镜像源</h3><p>在/etc/docker/daemon.json文件中添加下面参数</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"registry-mirrors"</span> : [<span class="string">"&lt;your accelerate address&gt;"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>注：如果没有该文件则自行创建</em></p>
+<h3 id="重启docker服务"><a href="#重启docker服务" class="headerlink" title="重启docker服务"></a>重启docker服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart docker.service</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos安装一些基础的命令</title>
     <url>/2019/10/17/Centos%E5%AE%89%E8%A3%85%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<p> 出现-bash: ***: command not found</p>
