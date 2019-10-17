@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Centos提示-bash: telnet: command not found的解决方法</title>
-    <url>/2019/10/17/Centos%E6%8F%90%E7%A4%BA-bash-telnet-command-not-found%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p> centos 运行telnet命令，出现下面的错误提示： </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">telnet 127.0.0.1 3306</span><br><span class="line">-bash: telnet: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure>
+    <title>Centos安装一些基础的命令</title>
+    <url>/2019/10/17/Centos%E5%AE%89%E8%A3%85%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<p> 出现-bash: ***: command not found</p>
+<h4 id="安装telnet"><a href="#安装telnet" class="headerlink" title="安装telnet"></a>安装telnet</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum list telnet*</span><br><span class="line">yum install -y telnet-server</span><br><span class="line">yum install -y telnet.*</span><br></pre></td></tr></table></figure>
 
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>安装telnet服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum list telnet*</span><br><span class="line">yum install -y telnet-server</span><br><span class="line">yum install -y telnet.*</span><br></pre></td></tr></table></figure>
+<h4 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y wget</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
