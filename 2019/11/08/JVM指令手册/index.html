@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="java,分布式,锁,zookeeper,">
+  <meta name="keywords" content="java,jvm,">
 
 
 
@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="不多说了直接看代码吧 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
-<meta name="keywords" content="java,分布式,锁,zookeeper">
+<meta name="description" content="栈和局部变量操作将常量压入栈的指令aconst_null 将null对象引用压入栈iconst_m1 将int类型常量-1压入栈iconst_0 将int类型常量0压入栈iconst_1 将int类型常量1压入栈iconst_2 将int类型常量2压入栈iconst_3 将int类型常量3压入栈iconst_4 将int类型常量4压入栈iconst_5 将int类型常量5压入栈lconst_0 将">
+<meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ZooKeeper分布式锁">
-<meta property="og:url" content="http://blog.2b13c.com/2019/10/12/ZooKeeper分布式锁/index.html">
+<meta property="og:title" content="JVM指令手册">
+<meta property="og:url" content="http://blog.2b13c.com/2019/11/08/JVM指令手册/index.html">
 <meta property="og:site_name" content="微小风的狂风暴雨">
-<meta property="og:description" content="不多说了直接看代码吧 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:description" content="栈和局部变量操作将常量压入栈的指令aconst_null 将null对象引用压入栈iconst_m1 将int类型常量-1压入栈iconst_0 将int类型常量0压入栈iconst_1 将int类型常量1压入栈iconst_2 将int类型常量2压入栈iconst_3 将int类型常量3压入栈iconst_4 将int类型常量4压入栈iconst_5 将int类型常量5压入栈lconst_0 将">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-12T10:18:19.218Z">
+<meta property="og:updated_time" content="2019-11-08T07:03:58.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZooKeeper分布式锁">
-<meta name="twitter:description" content="不多说了直接看代码吧 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta name="twitter:title" content="JVM指令手册">
+<meta name="twitter:description" content="栈和局部变量操作将常量压入栈的指令aconst_null 将null对象引用压入栈iconst_m1 将int类型常量-1压入栈iconst_0 将int类型常量0压入栈iconst_1 将int类型常量1压入栈iconst_2 将int类型常量2压入栈iconst_3 将int类型常量3压入栈iconst_4 将int类型常量4压入栈iconst_5 将int类型常量5压入栈lconst_0 将">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.2b13c.com/2019/10/12/ZooKeeper分布式锁/">
+  <link rel="canonical" href="http://blog.2b13c.com/2019/11/08/JVM指令手册/">
 
 
 
 
 
-  <title>ZooKeeper分布式锁 | 微小风的狂风暴雨</title>
+  <title>JVM指令手册 | 微小风的狂风暴雨</title>
   
 
 
@@ -300,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.2b13c.com/2019/10/12/ZooKeeper分布式锁/">
+    <link itemprop="mainEntityOfPage" href="http://blog.2b13c.com/2019/11/08/JVM指令手册/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="微小风">
@@ -317,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ZooKeeper分布式锁</h1>
+          <h1 class="post-title" itemprop="name headline">JVM指令手册</h1>
         
 
         <div class="post-meta">
@@ -329,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-12T18:13:49+08:00">
-                2019-10-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-08T14:51:41+08:00">
+                2019-11-08
               </time>
             
 
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-12T18:18:19+08:00">
-                2019-10-12
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-08T15:03:58+08:00">
+                2019-11-08
               </time>
             
           </span>
@@ -364,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/分布式/" itemprop="url" rel="index">
-                    <span itemprop="name">分布式</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -375,8 +375,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/分布式/锁/" itemprop="url" rel="index">
-                    <span itemprop="name">锁</span>
+                  <a href="/categories/java/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
                   </a>
                 </span>
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  483 字
+                  2.9k 字
                 </span>
               
 
@@ -436,9 +436,25 @@
       
 
       
-        <p>不多说了直接看代码吧</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> xxx;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.zookeeper.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.zookeeper.data.Stat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.CountDownLatch;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;ZooKeeper分布式锁&lt;/p&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZooKeeperDistributedLock</span> <span class="keyword">implements</span> <span class="title">Watcher</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ZooKeeper zk;</span><br><span class="line">    <span class="keyword">private</span> String locksRoot = <span class="string">"/locks"</span>;</span><br><span class="line">    <span class="keyword">private</span> String lockKey;</span><br><span class="line">    <span class="keyword">private</span> String waitNode;</span><br><span class="line">    <span class="keyword">private</span> String lockNode;</span><br><span class="line">    <span class="keyword">private</span> CountDownLatch latch;</span><br><span class="line">    <span class="keyword">private</span> CountDownLatch connectedLatch = <span class="keyword">new</span> CountDownLatch(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sessionTimeout = <span class="number">30000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ZooKeeperDistributedLock</span><span class="params">(String zkAddress, String lockKey)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lockKey = lockKey;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            zk = <span class="keyword">new</span> ZooKeeper(zkAddress, sessionTimeout, <span class="keyword">this</span>);</span><br><span class="line">            connectedLatch.await();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException | InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LockException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(WatchedEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (event.getState() == Event.KeeperState.SyncConnected) &#123;</span><br><span class="line">            connectedLatch.countDown();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.latch != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.latch.countDown();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">acquireDistributedLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.tryLock()) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                waitForLock(waitNode, sessionTimeout);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (KeeperException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LockException(e);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LockException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 传入进去的locksRoot + “/” + productId</span></span><br><span class="line">            <span class="comment">// 假设productId代表了一个商品id，比如说1</span></span><br><span class="line">            <span class="comment">// locksRoot = locks</span></span><br><span class="line">            <span class="comment">// /locks/10000000000，/locks/10000000001，/locks/10000000002</span></span><br><span class="line">            lockNode = zk.create(locksRoot + <span class="string">"/"</span> + lockKey, <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">0</span>], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);</span><br><span class="line">            <span class="comment">// 看看刚创建的节点是不是最小的节点</span></span><br><span class="line">            <span class="comment">// locks：10000000000，10000000001，10000000002</span></span><br><span class="line">            List&lt;String&gt; locks = zk.getChildren(locksRoot, <span class="keyword">false</span>);</span><br><span class="line">            Collections.sort(locks);</span><br><span class="line">            <span class="keyword">if</span>(lockNode.equals(locksRoot+<span class="string">"/"</span>+ locks.get(<span class="number">0</span>)))&#123;</span><br><span class="line">                <span class="comment">//如果是最小的节点,则表示取得锁</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果不是最小的节点，找到比自己小1的节点</span></span><br><span class="line">            <span class="keyword">int</span> previousLockIndex = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; locks.size(); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(lockNode.equals(locksRoot + <span class="string">"/"</span> + locks.get(i))) &#123;</span><br><span class="line">                    previousLockIndex = i - <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.waitNode = locks.get(previousLockIndex);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (KeeperException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LockException(e);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LockException(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">waitForLock</span><span class="params">(String waitNode, <span class="keyword">long</span> waitTime)</span> <span class="keyword">throws</span> InterruptedException, KeeperException </span>&#123;</span><br><span class="line">        Stat stat = zk.exists(locksRoot + <span class="string">"/"</span> + waitNode, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">if</span> (stat != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.latch = <span class="keyword">new</span> CountDownLatch(<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">this</span>.latch.await(waitTime, TimeUnit.MILLISECONDS);</span><br><span class="line">            <span class="keyword">this</span>.latch = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 删除/locks/10000000000节点</span></span><br><span class="line">            <span class="comment">// 删除/locks/10000000001节点</span></span><br><span class="line">            System.out.println(<span class="string">"unlock "</span> + lockNode);</span><br><span class="line">            zk.delete(lockNode, -<span class="number">1</span>);</span><br><span class="line">            lockNode = <span class="keyword">null</span>;</span><br><span class="line">            zk.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (KeeperException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">LockException</span><span class="params">(String e)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">LockException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h3 id="栈和局部变量操作"><a href="#栈和局部变量操作" class="headerlink" title="栈和局部变量操作"></a>栈和局部变量操作</h3><h4 id="将常量压入栈的指令"><a href="#将常量压入栈的指令" class="headerlink" title="将常量压入栈的指令"></a>将常量压入栈的指令</h4><p>aconst_null 将null对象引用压入栈<br>iconst_m1 将int类型常量-1压入栈<br>iconst_0 将int类型常量0压入栈<br>iconst_1 将int类型常量1压入栈<br>iconst_2 将int类型常量2压入栈<br>iconst_3 将int类型常量3压入栈<br>iconst_4 将int类型常量4压入栈<br>iconst_5 将int类型常量5压入栈<br>lconst_0 将long类型常量0压入栈<br>lconst_1 将long类型常量1压入栈<br>fconst_0 将float类型常量0压入栈<br>fconst_1 将float类型常量1压入栈<br>dconst_0 将double类型常量0压入栈<br>dconst_1 将double类型常量1压入栈<br>bipush 将一个8位带符号整数压入栈<br>sipush 将16位带符号整数压入栈<br>ldc 把常量池中的项压入栈<br>ldc_w 把常量池中的项压入栈（使用宽索引）<br>ldc2_w 把常量池中long类型或者double类型的项压入栈（使用宽索引）<br>从栈中的局部变量中装载值的指令<br>iload 从局部变量中装载int类型值<br>lload 从局部变量中装载long类型值<br>fload 从局部变量中装载float类型值<br>dload 从局部变量中装载double类型值<br>aload 从局部变量中装载引用类型值（refernce）<br>iload_0 从局部变量0中装载int类型值<br>iload_1 从局部变量1中装载int类型值<br>iload_2 从局部变量2中装载int类型值<br>iload_3 从局部变量3中装载int类型值<br>lload_0 从局部变量0中装载long类型值<br>lload_1 从局部变量1中装载long类型值<br>lload_2 从局部变量2中装载long类型值<br>lload_3 从局部变量3中装载long类型值<br>fload_0 从局部变量0中装载float类型值<br>fload_1 从局部变量1中装载float类型值<br>fload_2 从局部变量2中装载float类型值<br>fload_3 从局部变量3中装载float类型值<br>dload_0 从局部变量0中装载double类型值<br>dload_1 从局部变量1中装载double类型值<br>dload_2 从局部变量2中装载double类型值<br>dload_3 从局部变量3中装载double类型值<br>aload_0 从局部变量0中装载引用类型值<br>aload_1 从局部变量1中装载引用类型值<br>aload_2 从局部变量2中装载引用类型值<br>aload_3 从局部变量3中装载引用类型值<br>iaload 从数组中装载int类型值<br>laload 从数组中装载long类型值<br>faload 从数组中装载float类型值<br>daload 从数组中装载double类型值<br>aaload 从数组中装载引用类型值<br>baload 从数组中装载byte类型或boolean类型值<br>caload 从数组中装载char类型值<br>saload 从数组中装载short类型值</p>
+<h4 id="将栈中的值存入局部变量的指令"><a href="#将栈中的值存入局部变量的指令" class="headerlink" title="将栈中的值存入局部变量的指令"></a>将栈中的值存入局部变量的指令</h4><p>istore 将int类型值存入局部变量<br>lstore 将long类型值存入局部变量<br>fstore 将float类型值存入局部变量<br>dstore 将double类型值存入局部变量<br>astore 将将引用类型或returnAddress类型值存入局部变量<br>istore_0 将int类型值存入局部变量0<br>istore_1 将int类型值存入局部变量1<br>istore_2 将int类型值存入局部变量2<br>istore_3 将int类型值存入局部变量3<br>lstore_0 将long类型值存入局部变量0<br>lstore_1 将long类型值存入局部变量1<br>lstore_2 将long类型值存入局部变量2<br>lstore_3 将long类型值存入局部变量3<br>fstore_0 将float类型值存入局部变量0<br>fstore_1 将float类型值存入局部变量1<br>fstore_2 将float类型值存入局部变量2<br>fstore_3 将float类型值存入局部变量3<br>dstore_0 将double类型值存入局部变量0<br>dstore_1 将double类型值存入局部变量1<br>dstore_2 将double类型值存入局部变量2<br>dstore_3 将double类型值存入局部变量3<br>astore_0 将引用类型或returnAddress类型值存入局部变量0<br>astore_1 将引用类型或returnAddress类型值存入局部变量1<br>astore_2 将引用类型或returnAddress类型值存入局部变量2<br>astore_3 将引用类型或returnAddress类型值存入局部变量3<br>iastore 将int类型值存入数组中<br>lastore 将long类型值存入数组中<br>fastore 将float类型值存入数组中<br>dastore 将double类型值存入数组中<br>aastore 将引用类型值存入数组中<br>bastore 将byte类型或者boolean类型值存入数组中<br>castore 将char类型值存入数组中<br>sastore 将short类型值存入数组中</p>
+<h3 id="wide指令"><a href="#wide指令" class="headerlink" title="wide指令"></a>wide指令</h3><p>wide 使用附加字节扩展局部变量索引</p>
+<h3 id="通用（无类型）栈操作"><a href="#通用（无类型）栈操作" class="headerlink" title="通用（无类型）栈操作"></a>通用（无类型）栈操作</h3><p>nop 不做任何操作<br>pop 弹出栈顶端一个字长的内容<br>pop2 弹出栈顶端两个字长的内容<br>dup 复制栈顶部一个字长内容<br>dup_x1 复制栈顶部一个字长的内容，然后将复制内容及原来弹出的两个字长的内容压入栈<br>dup_x2 复制栈顶部一个字长的内容，然后将复制内容及原来弹出的三个字长的内容压入栈<br>dup2 复制栈顶部两个字长内容<br>dup2_x1 复制栈顶部两个字长的内容，然后将复制内容及原来弹出的三个字长的内容压入栈<br>dup2_x2 复制栈顶部两个字长的内容，然后将复制内容及原来弹出的四个字长的内容压入栈<br>swap 交换栈顶部两个字长内容</p>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>i2l 把int类型的数据转化为long类型<br>i2f 把int类型的数据转化为float类型<br>i2d 把int类型的数据转化为double类型<br>l2i 把long类型的数据转化为int类型<br>l2f 把long类型的数据转化为float类型<br>l2d 把long类型的数据转化为double类型<br>f2i 把float类型的数据转化为int类型<br>f2l 把float类型的数据转化为long类型<br>f2d 把float类型的数据转化为double类型<br>d2i 把double类型的数据转化为int类型<br>d2l 把double类型的数据转化为long类型<br>d2f 把double类型的数据转化为float类型<br>i2b 把int类型的数据转化为byte类型<br>i2c 把int类型的数据转化为char类型<br>i2s 把int类型的数据转化为short类型</p>
+<h3 id="整数运算"><a href="#整数运算" class="headerlink" title="整数运算"></a>整数运算</h3><p>iadd 执行int类型的加法<br>ladd 执行long类型的加法<br>isub 执行int类型的减法<br>lsub 执行long类型的减法<br>imul 执行int类型的乘法<br>lmul 执行long类型的乘法<br>idiv 执行int类型的除法<br>ldiv 执行long类型的除法<br>irem 计算int类型除法的余数<br>lrem 计算long类型除法的余数<br>ineg 对一个int类型值进行取反操作<br>lneg 对一个long类型值进行取反操作<br>iinc 把一个常量值加到一个int类型的局部变量上</p>
+<h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><h4 id="移位操作"><a href="#移位操作" class="headerlink" title="移位操作"></a>移位操作</h4><p>ishl 执行int类型的向左移位操作<br>lshl 执行long类型的向左移位操作<br>ishr 执行int类型的向右移位操作<br>lshr 执行long类型的向右移位操作<br>iushr 执行int类型的向右逻辑移位操作<br>lushr 执行long类型的向右逻辑移位操作</p>
+<h4 id="按位布尔运算"><a href="#按位布尔运算" class="headerlink" title="按位布尔运算"></a>按位布尔运算</h4><p>iand 对int类型值进行“逻辑与”操作<br>land 对long类型值进行“逻辑与”操作<br>ior 对int类型值进行“逻辑或”操作<br>lor 对long类型值进行“逻辑或”操作<br>ixor 对int类型值进行“逻辑异或”操作<br>lxor 对long类型值进行“逻辑异或”操作</p>
+<h3 id="浮点运算"><a href="#浮点运算" class="headerlink" title="浮点运算"></a>浮点运算</h3><p>fadd 执行float类型的加法<br>dadd 执行double类型的加法<br>fsub 执行float类型的减法<br>dsub 执行double类型的减法<br>fmul 执行float类型的乘法<br>dmul 执行double类型的乘法<br>fdiv 执行float类型的除法<br>ddiv 执行double类型的除法<br>frem 计算float类型除法的余数<br>drem 计算double类型除法的余数<br>fneg 将一个float类型的数值取反<br>dneg 将一个double类型的数值取反</p>
+<h3 id="对象和数组"><a href="#对象和数组" class="headerlink" title="对象和数组"></a>对象和数组</h3><h4 id="对象操作指令"><a href="#对象操作指令" class="headerlink" title="对象操作指令"></a>对象操作指令</h4><p>new 创建一个新对象<br>checkcast 确定对象为所给定的类型<br>getfield 从对象中获取字段<br>putfield 设置对象中字段的值<br>getstatic 从类中获取静态字段<br>putstatic 设置类中静态字段的值<br>instanceof 判断对象是否为给定的类型</p>
+<h4 id="数组操作指令"><a href="#数组操作指令" class="headerlink" title="数组操作指令"></a>数组操作指令</h4><p>newarray 分配数据成员类型为基本上数据类型的新数组<br>anewarray 分配数据成员类型为引用类型的新数组<br>arraylength 获取数组长度<br>multianewarray 分配新的多维数组 </p>
+<h3 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h3><h4 id="条件分支指令"><a href="#条件分支指令" class="headerlink" title="条件分支指令"></a>条件分支指令</h4><p>ifeq 如果等于0，则跳转<br>ifne 如果不等于0，则跳转<br>iflt 如果小于0，则跳转<br>ifge 如果大于等于0，则跳转<br>ifgt 如果大于0，则跳转<br>ifle 如果小于等于0，则跳转<br>if_icmpcq 如果两个int值相等，则跳转<br>if_icmpne 如果两个int类型值不相等，则跳转<br>if_icmplt 如果一个int类型值小于另外一个int类型值，则跳转<br>if_icmpge 如果一个int类型值大于或者等于另外一个int类型值，则跳转<br>if_icmpgt 如果一个int类型值大于另外一个int类型值，则跳转<br>if_icmple 如果一个int类型值小于或者等于另外一个int类型值，则跳转<br>ifnull 如果等于null，则跳转<br>ifnonnull 如果不等于null，则跳转<br>if_acmpeq 如果两个对象引用相等，则跳转<br>if_acmpnc 如果两个对象引用不相等，则跳转</p>
+<h4 id="比较指令"><a href="#比较指令" class="headerlink" title="比较指令"></a>比较指令</h4><p>lcmp 比较long类型值<br>fcmpl 比较float类型值（当遇到NaN时，返回-1）<br>fcmpg 比较float类型值（当遇到NaN时，返回1）<br>dcmpl 比较double类型值（当遇到NaN时，返回-1）<br>dcmpg 比较double类型值（当遇到NaN时，返回1）</p>
+<h3 id="无条件转移指令"><a href="#无条件转移指令" class="headerlink" title="无条件转移指令"></a>无条件转移指令</h3><p>goto 无条件跳转<br>goto_w 无条件跳转（宽索引）</p>
+<h3 id="表跳转指令"><a href="#表跳转指令" class="headerlink" title="表跳转指令"></a>表跳转指令</h3><p>tableswitch 通过索引访问跳转表，并跳转<br>lookupswitch 通过键值匹配访问跳转表，并执行跳转操作</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>athrow 抛出异常或错误<br>finally子句<br>jsr 跳转到子例程<br>jsr_w 跳转到子例程（宽索引）<br>rct 从子例程返回<br>方法调用与返回<br>方法调用指令<br>invokcvirtual 运行时按照对象的类来调用实例方法<br>invokespecial 根据编译时类型来调用实例方法<br>invokestatic 调用类（静态）方法<br>invokcinterface 调用接口方法</p>
+<h3 id="方法返回指令"><a href="#方法返回指令" class="headerlink" title="方法返回指令"></a>方法返回指令</h3><p>ireturn 从方法中返回int类型的数据<br>lreturn 从方法中返回long类型的数据<br>freturn 从方法中返回float类型的数据<br>dreturn 从方法中返回double类型的数据<br>areturn 从方法中返回引用类型的数据<br>return 从方法中返回，返回值为void</p>
+<h3 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h3><p>montiorenter 进入并获取对象监视器<br>monitorexit 释放并退出对象监视器</p>
+<h3 id="JVM指令助记符"><a href="#JVM指令助记符" class="headerlink" title="JVM指令助记符"></a>JVM指令助记符</h3><p>变量到操作数栈：iload,iload_,lload,lload_,fload,fload_,dload,dload_,aload,aload_<br>操作数栈到变量：istore,istore_,lstore,lstore_,fstore,fstore_,dstore,dstor_,astore,astore_<br>常数到操作数栈：bipush,sipush,ldc,ldc_w,ldc2_w,aconst_null,iconst_ml,iconst_,lconst_,fconst_,dconst_<br>加：iadd,ladd,fadd,dadd<br>减：isub,lsub,fsub,dsub<br>乘：imul,lmul,fmul,dmul<br>除：idiv,ldiv,fdiv,ddiv<br>余数：irem,lrem,frem,drem<br>取负：ineg,lneg,fneg,dneg<br>移位：ishl,lshr,iushr,lshl,lshr,lushr<br>按位或：ior,lor<br>按位与：iand,land<br>按位异或：ixor,lxor<br>类型转换：i2l,i2f,i2d,l2f,l2d,f2d(放宽数值转换)<br>i2b,i2c,i2s,l2i,f2i,f2l,d2i,d2l,d2f(缩窄数值转换)<br>创建类实便：new<br>创建新数组：newarray,anewarray,multianwarray<br>访问类的域和类实例域：getfield,putfield,getstatic,putstatic<br>把数据装载到操作数栈：baload,caload,saload,iaload,laload,faload,daload,aaload<br>从操作数栈存存储到数组：bastore,castore,sastore,iastore,lastore,fastore,dastore,aastore<br>获取数组长度：arraylength<br>检相类实例或数组属性：instanceof,checkcast<br>操作数栈管理：pop,pop2,dup,dup2,dup_xl,dup2_xl,dup_x2,dup2_x2,swap<br>有条件转移：ifeq,iflt,ifle,ifne,ifgt,ifge,ifnull,ifnonnull,if_icmpeq,if_icmpene,<br>if_icmplt,if_icmpgt,if_icmple,if_icmpge,if_acmpeq,if_acmpne,lcmp,fcmpl<br>fcmpg,dcmpl,dcmpg<br>复合条件转移：tableswitch,lookupswitch<br>无条件转移：goto,goto_w,jsr,jsr_w,ret<br>调度对象的实便方法：invokevirtual<br>调用由接口实现的方法：invokeinterface<br>调用需要特殊处理的实例方法：invokespecial<br>调用命名类中的静态方法：invokestatic<br>方法返回：ireturn,lreturn,freturn,dreturn,areturn,return<br>异常：athrow<br>finally关键字的实现使用：jsr,jsr_w,ret</p>
 
       
     </div>
@@ -499,11 +515,7 @@
           
             <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/分布式/" rel="tag"># 分布式</a>
-          
-            <a href="/tags/锁/" rel="tag"># 锁</a>
-          
-            <a href="/tags/zookeeper/" rel="tag"># zookeeper</a>
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
           
         </div>
       
@@ -516,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/12/redis分布式锁/" rel="next" title="redis分布式锁">
-                <i class="fa fa-chevron-left"></i> redis分布式锁
+              <a href="/2019/10/17/解决docker-pull-速度慢/" rel="next" title="解决docker pull 速度慢">
+                <i class="fa fa-chevron-left"></i> 解决docker pull 速度慢
               </a>
             
           </div>
@@ -525,10 +537,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/12/Snowflake算法个人改造版/" rel="prev" title="Snowflake算法个人改造版">
-                Snowflake算法个人改造版 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -580,8 +588,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -641,6 +658,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和局部变量操作"><span class="nav-number">1.</span> <span class="nav-text">栈和局部变量操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将常量压入栈的指令"><span class="nav-number">1.1.</span> <span class="nav-text">将常量压入栈的指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将栈中的值存入局部变量的指令"><span class="nav-number">1.2.</span> <span class="nav-text">将栈中的值存入局部变量的指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wide指令"><span class="nav-number">2.</span> <span class="nav-text">wide指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用（无类型）栈操作"><span class="nav-number">3.</span> <span class="nav-text">通用（无类型）栈操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">4.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整数运算"><span class="nav-number">5.</span> <span class="nav-text">整数运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算"><span class="nav-number">6.</span> <span class="nav-text">逻辑运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#移位操作"><span class="nav-number">6.1.</span> <span class="nav-text">移位操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按位布尔运算"><span class="nav-number">6.2.</span> <span class="nav-text">按位布尔运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点运算"><span class="nav-number">7.</span> <span class="nav-text">浮点运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象和数组"><span class="nav-number">8.</span> <span class="nav-text">对象和数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象操作指令"><span class="nav-number">8.1.</span> <span class="nav-text">对象操作指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组操作指令"><span class="nav-number">8.2.</span> <span class="nav-text">数组操作指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制流"><span class="nav-number">9.</span> <span class="nav-text">控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#条件分支指令"><span class="nav-number">9.1.</span> <span class="nav-text">条件分支指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较指令"><span class="nav-number">9.2.</span> <span class="nav-text">比较指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无条件转移指令"><span class="nav-number">10.</span> <span class="nav-text">无条件转移指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表跳转指令"><span class="nav-number">11.</span> <span class="nav-text">表跳转指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-number">12.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法返回指令"><span class="nav-number">13.</span> <span class="nav-text">方法返回指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程同步"><span class="nav-number">14.</span> <span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM指令助记符"><span class="nav-number">15.</span> <span class="nav-text">JVM指令助记符</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
